@@ -37,7 +37,9 @@ button {
   margin: 0 auto;
   padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
   display: grid;
-  place-items: center;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  gap: 10px;
 }
 
 .screen {
@@ -339,9 +341,18 @@ h2 {
   line-height: 1.1;
 }
 
+.version-label {
+  margin: 0;
+  color: rgba(36, 65, 54, 0.56);
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+
 @media (max-width: 620px) {
   .app-shell {
     padding: 14px;
+    gap: 8px;
   }
 
   .game-header {
