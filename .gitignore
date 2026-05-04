@@ -1,0 +1,16 @@
+# 公開に不要なローカル元画像
+/ChatGPT Image 2026年5月4日 12_01_55.jpg
+/ChatGPT Image 2026年5月4日 12_01_55.png
+/kirinukitanuki.png
+/unnamed.jpg
+
+# 環境変数・秘密情報
+.env
+.env.*
+*.secret
+secrets/
+
+# OS / エディタ
+Thumbs.db
+.DS_Store
+.vscode/

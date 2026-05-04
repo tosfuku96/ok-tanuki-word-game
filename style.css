@@ -1,0 +1,495 @@
+:root {
+  --green: #47b881;
+  --deep-green: #24785a;
+  --sky: #8ed9f6;
+  --soft-sky: #e8f8fd;
+  --yellow: #ffd966;
+  --cream: #fff9df;
+  --ink: #244136;
+  --muted: #60756d;
+  --white: #ffffff;
+  --shadow: 0 18px 45px rgba(36, 65, 54, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 217, 102, 0.42), transparent 28rem),
+    linear-gradient(135deg, #f7fff4 0%, #e8f8fd 52%, #fff9df 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  width: min(100%, 980px);
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(14px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+  display: grid;
+  place-items: center;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+}
+
+.screen-active {
+  display: block;
+}
+
+.hero,
+.work-area,
+.result-panel {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 4px solid rgba(71, 184, 129, 0.22);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  min-height: min(720px, calc(100vh - 40px));
+  padding: clamp(24px, 5vw, 52px);
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: clamp(14px, 3vw, 22px);
+  text-align: center;
+}
+
+.office-name {
+  color: var(--deep-green);
+  font-size: clamp(22px, 4.4vw, 36px);
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.tanuki-frame {
+  position: relative;
+  width: min(82vw, 430px);
+  margin: 2px auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.tanuki-image {
+  width: 100%;
+  height: auto;
+  max-height: min(54vh, 520px);
+  object-fit: contain;
+  display: block;
+}
+
+.tanuki-fallback {
+  position: absolute;
+  inset: 18%;
+  display: none;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  color: var(--deep-green);
+  background: rgba(255, 255, 255, 0.72);
+  border: 3px dashed rgba(36, 120, 90, 0.35);
+  border-radius: 50%;
+}
+
+.tanuki-face {
+  font-size: clamp(42px, 9vw, 76px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.tanuki-label {
+  font-size: clamp(16px, 3vw, 22px);
+  font-weight: 800;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 12em;
+  color: var(--deep-green);
+  font-size: clamp(32px, 6.8vw, 58px);
+  line-height: 1.12;
+}
+
+h2 {
+  color: var(--deep-green);
+  font-size: clamp(28px, 5vw, 44px);
+}
+
+.lead,
+.prompt,
+.message,
+.result-message {
+  color: var(--muted);
+  font-size: clamp(18px, 3.2vw, 24px);
+  line-height: 1.7;
+}
+
+.primary-button,
+.secondary-button,
+.home-button,
+.letter-button {
+  min-height: 56px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.primary-button {
+  min-width: min(100%, 240px);
+  padding: 16px 28px;
+  color: var(--white);
+  background: var(--green);
+  box-shadow: 0 10px 20px rgba(71, 184, 129, 0.25);
+  font-size: clamp(20px, 4vw, 28px);
+}
+
+.secondary-button {
+  min-width: min(100%, 160px);
+  padding: 14px 22px;
+  color: var(--deep-green);
+  background: var(--yellow);
+  font-size: clamp(18px, 3vw, 22px);
+}
+
+.home-button {
+  min-width: min(100%, 250px);
+  margin-left: clamp(0px, 5vw, 32px);
+  padding: 14px 22px;
+  color: var(--deep-green);
+  background: var(--soft-sky);
+  border: 3px solid rgba(142, 217, 246, 0.9);
+  font-size: clamp(17px, 2.8vw, 21px);
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.home-button:hover,
+.letter-button:hover {
+  transform: translateY(-2px);
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.home-button:focus-visible,
+.letter-button:focus-visible {
+  outline: 4px solid rgba(142, 217, 246, 0.9);
+  outline-offset: 4px;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.score-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.small-label {
+  color: var(--muted);
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.score-box {
+  min-width: 112px;
+  padding: 12px 18px;
+  display: grid;
+  gap: 2px;
+  text-align: center;
+  background: var(--cream);
+  border: 3px solid var(--yellow);
+  border-radius: 8px;
+}
+
+.score-box strong {
+  color: var(--deep-green);
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1;
+}
+
+.score-tanuki {
+  width: clamp(64px, 12vw, 96px);
+  height: clamp(64px, 12vw, 96px);
+  display: block;
+  object-fit: contain;
+  background: var(--white);
+  border: 3px solid rgba(71, 184, 129, 0.22);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.work-area {
+  padding: clamp(22px, 5vw, 42px);
+  display: grid;
+  gap: 24px;
+}
+
+.answer-slots,
+.letter-bank {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  gap: 10px;
+}
+
+.answer-slot,
+.letter-button {
+  min-height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1;
+}
+
+.answer-slot {
+  color: var(--deep-green);
+  background: var(--soft-sky);
+  border: 3px solid rgba(142, 217, 246, 0.9);
+  font-weight: 900;
+}
+
+.answer-slot.empty::after {
+  content: "";
+  width: 28px;
+  height: 4px;
+  background: rgba(36, 120, 90, 0.24);
+  border-radius: 999px;
+}
+
+.letter-button {
+  color: var(--ink);
+  background: var(--white);
+  border: 3px solid rgba(71, 184, 129, 0.34);
+  box-shadow: 0 8px 18px rgba(36, 65, 54, 0.08);
+}
+
+.letter-button:disabled {
+  color: rgba(36, 65, 54, 0.25);
+  background: #eef4ef;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.message {
+  min-height: 42px;
+  font-weight: 800;
+}
+
+.message.correct {
+  color: var(--deep-green);
+}
+
+.message.wrong {
+  color: #6c6a12;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.result-panel {
+  padding: clamp(28px, 7vw, 60px);
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.result-score {
+  color: var(--deep-green);
+  font-size: clamp(38px, 8vw, 72px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    padding: 14px;
+  }
+
+  .game-header {
+    align-items: stretch;
+  }
+
+  .score-area {
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .score-box {
+    min-width: 92px;
+    padding-inline: 10px;
+  }
+
+  .score-tanuki {
+    width: 72px;
+    height: 72px;
+  }
+
+  .answer-slots,
+  .letter-bank {
+    grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+  }
+
+  .answer-slot,
+  .letter-button {
+    min-height: 56px;
+  }
+
+  .actions,
+  .actions .primary-button,
+  .actions .secondary-button,
+  .actions .home-button {
+    width: 100%;
+  }
+
+  .home-button {
+    margin-left: 0;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: auto;
+    padding: 18px 14px;
+    gap: 12px;
+  }
+
+  .office-name {
+    font-size: clamp(18px, 5.2vw, 22px);
+  }
+
+  h1 {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .tanuki-frame {
+    width: min(76vw, 300px);
+    margin-bottom: 4px;
+  }
+
+  .tanuki-image {
+    width: 100%;
+    max-height: 36svh;
+  }
+
+  .lead,
+  .prompt,
+  .message,
+  .result-message {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .home-button {
+    min-height: 52px;
+    padding: 12px 16px;
+  }
+
+  .game-header {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .score-area {
+    gap: 6px;
+  }
+
+  .score-box {
+    min-width: 82px;
+    padding: 8px 10px;
+  }
+
+  .score-box strong {
+    font-size: 30px;
+  }
+
+  .score-tanuki {
+    width: 58px;
+    height: 58px;
+    padding: 2px;
+  }
+
+  .work-area {
+    padding: 16px 12px;
+    gap: 16px;
+  }
+
+  .answer-slots,
+  .letter-bank {
+    grid-template-columns: repeat(auto-fit, minmax(44px, 1fr));
+    gap: 8px;
+  }
+
+  .answer-slot,
+  .letter-button {
+    min-height: 50px;
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 360px) {
+  .app-shell {
+    padding: 10px;
+  }
+
+  .game-header {
+    flex-direction: column;
+  }
+
+  .score-area {
+    justify-content: flex-start;
+  }
+
+  .tanuki-frame {
+    width: min(72vw, 250px);
+  }
+
+  .tanuki-image {
+    max-height: 32svh;
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#47b881">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="OKことば工房">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>たぬきのOKことば工房</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/kirinukitanuki.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="start-screen" class="screen screen-active" aria-labelledby="game-title">
+      <div class="hero">
+        <p class="office-name">OK自立支援事業所 久喜</p>
+        <h1 id="game-title">たぬきのOKことば工房</h1>
+        <div class="tanuki-frame">
+          <img
+            id="tanuki-image"
+            class="tanuki-image"
+            src="assets/ok_tanuki.png"
+            alt="OKたぬき"
+          >
+          <div id="tanuki-fallback" class="tanuki-fallback" aria-hidden="true">
+            <span class="tanuki-face">OK</span>
+            <span class="tanuki-label">たぬき</span>
+          </div>
+        </div>
+        <p class="lead">文字をえらんで、ことばを完成させよう。</p>
+        <button id="start-button" class="primary-button" type="button">はじめる</button>
+      </div>
+    </section>
+
+    <section id="game-screen" class="screen" aria-labelledby="question-title">
+      <header class="game-header">
+        <div>
+          <p class="small-label">もんだい</p>
+          <h2 id="question-title"><span id="question-number">1</span> / 10</h2>
+        </div>
+        <div class="score-area">
+          <img
+            class="score-tanuki"
+            src="assets/kirinukitanuki.png"
+            alt="OKたぬき"
+          >
+          <div class="score-box" aria-live="polite">
+            <span class="small-label">スコア</span>
+            <strong id="score">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <div class="work-area">
+        <p class="prompt">バラバラの文字を、じゅんばんにクリックしてね。</p>
+
+        <div id="answer-slots" class="answer-slots" aria-label="えらんだ文字"></div>
+
+        <div id="letter-bank" class="letter-bank" aria-label="文字の候補"></div>
+
+        <p id="message" class="message" aria-live="polite"></p>
+
+        <div class="actions">
+          <button id="check-button" class="primary-button" type="button">こたえあわせ</button>
+          <button id="clear-button" class="secondary-button" type="button">けす</button>
+          <button id="home-button" class="home-button" type="button">はじめのがめんにもどる</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="result-screen" class="screen" aria-labelledby="result-title">
+      <div class="result-panel">
+        <p class="small-label">けっか</p>
+        <h2 id="result-title">おつかれさまでした！</h2>
+        <p id="result-score" class="result-score"></p>
+        <p id="result-message" class="result-message"></p>
+        <button id="restart-button" class="primary-button" type="button">もう一度あそぶ</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
