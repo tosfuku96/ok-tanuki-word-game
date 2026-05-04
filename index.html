@@ -31,6 +31,14 @@
           </div>
         </div>
         <p class="lead">文字をえらんで、ことばを完成させよう。</p>
+        <div class="category-panel" aria-labelledby="category-title">
+          <p id="category-title" class="small-label">カテゴリ</p>
+          <div id="category-buttons" class="category-buttons" role="group" aria-label="問題カテゴリ"></div>
+        </div>
+        <div class="difficulty-panel" aria-labelledby="difficulty-title">
+          <p id="difficulty-title" class="small-label">なんいど</p>
+          <div id="difficulty-buttons" class="difficulty-buttons" role="group" aria-label="難易度"></div>
+        </div>
         <button id="start-button" class="primary-button" type="button">はじめる</button>
       </div>
     </section>
@@ -39,7 +47,8 @@
       <header class="game-header">
         <div>
           <p class="small-label">もんだい</p>
-          <h2 id="question-title"><span id="question-number">1</span> / 10</h2>
+          <h2 id="question-title"><span id="question-number">1</span> / <span id="question-total">10</span></h2>
+          <p id="current-category" class="category-status">ぜんぶ / ふつう</p>
         </div>
         <div class="score-area">
           <img
@@ -81,7 +90,8 @@
       </div>
     </section>
 
-    <p class="version-label">v1.0.0</p>
+    <button id="bgm-button" class="sound-button" type="button" aria-pressed="false">BGM オフ</button>
+    <p class="version-label">v1.4.0</p>
   </main>
 
   <script src="script.js"></script>

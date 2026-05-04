@@ -1,4 +1,4 @@
-const CACHE_NAME = "ok-tanuki-word-game-v1";
+const CACHE_NAME = "ok-tanuki-word-game-v1.4.0";
 
 const CACHE_FILES = [
   "./",
